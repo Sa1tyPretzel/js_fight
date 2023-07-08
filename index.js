@@ -1,5 +1,5 @@
 const canvas = document.querySelector('canvas');
-const c = canvas.getContext("2d");
+const c = canvas.getContext('2d');
 
 canvas.width = 1024
 canvas.height = 576
@@ -16,13 +16,14 @@ class Sprite {
     }
 
     draw() {
-        c.fillStyle = "red"
+        c.fillStyle = 'red'
         c.fillRect(this.position.x, this.position.y, 50, this.height)
     }
 
     update () {
        this.draw()
        
+       this.position.x += this.velocity.x
        this.position.y += this.velocity.y
 
        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
@@ -62,10 +63,34 @@ console.log(player);
 
 function animate() {
     window.requestAnimationFrame(animate)
-    c.fillStyle = "black"
+    c.fillStyle = 'black'
     c.fillRect(0, 0, canvas.width, canvas.height)
     player.update()
     enemy.update()
 }
 
 animate()
+
+window.addEventListener('keydown', (event) => {
+  switch (event.key) {
+    case "d":
+        player.velocity.x = 1
+        break
+    case "a":
+        player.velocity.x = -1
+        break    
+  }
+    console.log(event.key)
+})
+
+window.addEventListener('keyup', (event) => {
+    switch (event.key) {
+      case "d":
+          player.velocity.x = 0
+          break
+      case "a":
+          player.velocity.x = 0
+          break   
+    }
+      console.log(event.key)
+  })
