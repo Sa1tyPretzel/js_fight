@@ -16,7 +16,7 @@ class Sprite {
     }
 
     draw() {
-        c.fillStyle = 'red'
+        c.fillStyle = 'green'
         c.fillRect(this.position.x, this.position.y, 50, this.height)
     }
 
@@ -67,6 +67,9 @@ const keys = {
   },
   d: {
     pressed: false
+  },
+  w: {
+    pressed: false
   }  
 }
 
@@ -100,7 +103,22 @@ window.addEventListener('keydown', (event) => {
     case "a":
         keys.a.pressed = true
         lastKey = "a"
-        break    
+        break
+    case "w":
+        player.velocity.y = -10
+        break
+    
+    case "d":
+        keys.d.pressed = true
+        lastKey = "d"
+        break
+    case "a":
+        keys.a.pressed = true
+        lastKey = "a"
+        break
+    case "w":
+        player.velocity.y = -10
+        break     
   }
     console.log(event.key)
 })
@@ -112,7 +130,10 @@ window.addEventListener('keyup', (event) => {
           break
       case "a":
           keys.a.pressed = false
-          break   
+          break
+      case "w":
+          keys.w.pressed = false
+          break       
     }
       console.log(event.key)
   })
