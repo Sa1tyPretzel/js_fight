@@ -9,7 +9,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 const gravity = 0.6
 
 class Sprite {
-    constructor({position, velocity, color = "yellow", offset}) {
+    constructor({position, velocity, color = "orange", offset}) {
         this.position = position
         this.velocity = velocity
         this.width = 50
@@ -90,7 +90,7 @@ const enemy = new Sprite({
         x: 0,
         y: 0
     },
-    color: "pink",
+    color: "green",
     offset: {
         x: -50,
         y: 0
@@ -209,7 +209,7 @@ window.addEventListener('keydown', (event) => {
         enemy.velocity.y = -20
         break
     case "ArrowDown":
-        enemy.isAttacking = true
+        enemy.attack()
         break          
   }
 })
