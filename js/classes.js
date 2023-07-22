@@ -60,8 +60,10 @@ class Fighter {
        
        this.position.x += this.velocity.x
        this.position.y += this.velocity.y
-
-       if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+        
+       // player sprite above ground
+       if (this.position.y + this.height + this.velocity.y >= 
+            canvas.height - 35) {
           this.velocity.y = 0  
        } else
        this.velocity.y += gravity
