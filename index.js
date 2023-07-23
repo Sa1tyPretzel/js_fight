@@ -25,6 +25,15 @@ const fire = new Sprite({
     scale: 2.5   
 })
 
+const flame = new Sprite({
+    position: {
+        x: 438,
+        y: 373,
+    },
+    imageSrc: './img/fire_flame.png',
+    scale: 2.3   
+})
+
 const player = new Fighter({
     position: {
     x: 0,
@@ -86,6 +95,7 @@ function animate() {
     c.fillRect(0, 0, canvas.width, canvas.height)
     background.update()
     fire.update()
+    flame.update()
     player.update()
     enemy.update()
 
