@@ -18,7 +18,7 @@ const background = new Sprite({
 
 const fire = new Sprite({
     position: {
-        x: 400,
+        x: 350,
         y: 422,
     },
     imageSrc: './img/fire_wood.png',
@@ -27,11 +27,12 @@ const fire = new Sprite({
 
 const flame = new Sprite({
     position: {
-        x: 438,
-        y: 373,
+        x: 353,
+        y: 328,
     },
     imageSrc: './img/fire_flame.png',
-    scale: 2.3   
+    scale: 2.5,
+    framesMax: 19  
 })
 
 const player = new Fighter({
