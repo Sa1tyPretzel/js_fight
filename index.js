@@ -18,8 +18,8 @@ const background = new Sprite({
 
 const fire = new Sprite({
     position: {
-        x: 0,
-        y: 0,
+        x: 400,
+        y: 422,
     },
     imageSrc: './img/fire_wood.png',
     scale: 2.5   
