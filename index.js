@@ -47,6 +47,13 @@ const player = new Fighter({
     offset: {
         x: 0,
         y: 0
+    },
+    imageSrc: './img/Player1/idle.png',
+    framesMax: 6,
+    scale: 4.5,
+    offset: {
+        x: 0,
+        y: 45
     }
 })
 
@@ -165,7 +172,7 @@ window.addEventListener('keydown', (event) => {
     case "w":
         player.velocity.y = -20
         break
-    case " ":
+    case "s":
         player.attack()
         break
 
