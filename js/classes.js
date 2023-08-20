@@ -124,10 +124,23 @@ class Fighter extends Sprite {
        this.isAttacking = true
     }
 
+    hurt() {
+      this.switchSprite('hurt')
+      this.health -= 20
+    }
+
     switchSprite(sprite) {
+      // override animations with attack animations
       if (
         this.image === this.sprites.attack1.image &&
         this.framesCurrent < this.sprites.attack1.framesMax - 1
+      )
+        return
+
+      // override when fighter gets hit  
+      if (
+        this.image === this.sprites.hurt.image && 
+        this.framesCurrent < this.sprites.hurt.framesMax - 1
       )
         return
 
@@ -166,7 +179,14 @@ class Fighter extends Sprite {
                 this.framesMax = this.sprites.attack1.framesMax
                 this.framesCurrent = 0
               }
-                break   
+                break
+            case 'hurt':
+              if (this.image !== this.sprites.hurt.image) {
+                this.image = this.sprites.hurt.image
+                this.framesMax = this.sprites.hurt.framesMax
+                this.framesCurrent = 0
+              }
+                break       
         }
     }
 }

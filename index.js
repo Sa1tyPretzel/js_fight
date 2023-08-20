@@ -75,6 +75,10 @@ const player = new Fighter({
         attack1 : {
             imageSrc: './img/Player1/attack1.png',
             framesMax: 6,
+        },
+        hurt : {
+            imageSrc: './img/Player1/hurt.png',
+            framesMax: 4,
         },  
     },
     attackBox: {
@@ -129,6 +133,10 @@ const enemy = new Fighter({
         attack1 : {
             imageSrc: './img/Player2/attack1.png',
             framesMax: 6,
+        },
+        hurt : {
+            imageSrc: './img/Player2/hurt.png',
+            framesMax: 4,
         },  
     },
     attackBox: {
@@ -223,32 +231,35 @@ function animate() {
             rectangle1: player,
             rectangle2: enemy
         }) &&
-        player.isAttacking && player.framesCurrent === 4
+        player.isAttacking && player.framesCurrent === 3
     ) {
+        enemy.hurt()
         player.isAttacking = false
-        enemy.health -= 20
+        
         document.querySelector('#enemyHealth').style.width = enemy.health + "%"
     }
 
     // if player misses
-    if (player.isAttacking && player.framesCurrent === 4) {
+    if (player.isAttacking && player.framesCurrent === 3) {
         player.isAttacking = false
     }
 
+    // player gets hit
     if (
         rectangularCollision({
             rectangle1: enemy,
             rectangle2: player
         }) &&
-        enemy.isAttacking && enemy.framesCurrent === 4
+        enemy.isAttacking && enemy.framesCurrent === 3
     ) {
+        player.hurt()
         enemy.isAttacking = false
-        player.health -= 20
+        //player.health -= 20
         document.querySelector('#playerHealth').style.width = player.health + "%"
     }
 
     // if enemy misses
-    if (enemy.isAttacking && enemy.framesCurrent === 4) {
+    if (enemy.isAttacking && enemy.framesCurrent === 3) {
         enemy.isAttacking = false
     }
 
