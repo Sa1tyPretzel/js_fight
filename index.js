@@ -93,6 +93,35 @@ const enemy = new Fighter({
     offset: {
         x: -50,
         y: 0
+    },
+    imageSrc: './img/Player2/idle.png',
+    framesMax: 4,
+    scale: 5,
+    offset: {
+        x: 0,
+        y: 30
+    },
+    sprites : {
+        idle : {
+            imageSrc: './img/Player2/idle.png',
+            framesMax: 4,
+        },
+        run : {
+            imageSrc: './img/Player2/run.png',
+            framesMax: 6,
+        },
+        jump : {
+            imageSrc: './img/Player2/jump.png',
+            framesMax: 4,
+        },
+        fall : {
+            imageSrc: './img/Player2/fall.png',
+            framesMax: 2,
+        },
+        attack1 : {
+            imageSrc: './img/Player2/attack1.png',
+            framesMax: 6,
+        },  
     } 
 })
 
@@ -128,7 +157,7 @@ function animate() {
     fire.update()
     flame.update()
     player.update()
-    //enemy.update()
+    enemy.update()
 
     player.velocity.x = 0
     enemy.velocity.x = 0
