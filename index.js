@@ -223,11 +223,16 @@ function animate() {
             rectangle1: player,
             rectangle2: enemy
         }) &&
-        player.isAttacking
+        player.isAttacking && player.framesCurrent === 4
     ) {
         player.isAttacking = false
         enemy.health -= 20
         document.querySelector('#enemyHealth').style.width = enemy.health + "%"
+    }
+
+    // if player misses
+    if (player.isAttacking && player.framesCurrent === 4) {
+        player.isAttacking = false
     }
 
     if (
@@ -235,11 +240,16 @@ function animate() {
             rectangle1: enemy,
             rectangle2: player
         }) &&
-        enemy.isAttacking
+        enemy.isAttacking && enemy.framesCurrent === 4
     ) {
         enemy.isAttacking = false
         player.health -= 20
         document.querySelector('#playerHealth').style.width = player.health + "%"
+    }
+
+    // if enemy misses
+    if (enemy.isAttacking && enemy.framesCurrent === 4) {
+        enemy.isAttacking = false
     }
 
     //end game on health 
