@@ -67,7 +67,11 @@ const player = new Fighter({
         jump : {
             imageSrc: './img/Player1/jump.png',
             framesMax: 3,
-        } 
+        },
+        fall : {
+            imageSrc: './img/Player1/fall.png',
+            framesMax: 3,
+        }  
     }
 
 })
@@ -126,7 +130,7 @@ function animate() {
     enemy.velocity.x = 0
 
     //player movement
-    player.switchSprite('idle')
+    
     if (keys.a.pressed && player.lastKey === "a") {
        player.velocity.x = -5
        player.switchSprite('run')
@@ -134,10 +138,15 @@ function animate() {
     else if (keys.d.pressed && player.lastKey === "d") {
         player.velocity.x = 5
         player.switchSprite('run')
+    } else {
+        player.switchSprite('idle')
     }
 
+    // jumping
     if (player.velocity.y < 0) {
         player.switchSprite('jump')
+    } else if (player.velocity.y > 0) {
+        player.switchSprite('fall')
     }
 
     //enemy movement
