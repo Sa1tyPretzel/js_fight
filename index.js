@@ -74,7 +74,7 @@ const player = new Fighter({
         },
         attack1 : {
             imageSrc: './img/Player1/attack1.png',
-            framesMax: 9,
+            framesMax: 6,
         },  
     }
 
@@ -175,7 +175,7 @@ function animate() {
         player.switchSprite('idle')
     }
 
-    // jumping
+    // player jumping
     if (player.velocity.y < 0) {
         player.switchSprite('jump')
     } else if (player.velocity.y > 0) {
@@ -185,9 +185,20 @@ function animate() {
     //enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
         enemy.velocity.x = -5
+        enemy.switchSprite('run')
     }
      else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
         enemy.velocity.x = 5
+        enemy.switchSprite('run')
+    } else {
+        enemy.switchSprite('idle')
+    }
+
+    // enemy jumping
+    if (enemy.velocity.y < 0) {
+        enemy.switchSprite('jump')
+    } else if (enemy.velocity.y > 0) {
+        enemy.switchSprite('fall')
     }
 
     //detect for collision
