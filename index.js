@@ -76,6 +76,14 @@ const player = new Fighter({
             imageSrc: './img/Player1/attack1.png',
             framesMax: 6,
         },  
+    },
+    attackBox: {
+        offset: {
+            x: 65,
+            y: 50
+        },
+        width: 100,
+        height: 50
     }
 
 })
@@ -95,33 +103,41 @@ const enemy = new Fighter({
         y: 0
     },
     imageSrc: './img/Player2/idle.png',
-    framesMax: 4,
-    scale: 5,
+    framesMax: 6,
+    scale: 4.5,
     offset: {
         x: 0,
-        y: 30
+        y: 45
     },
     sprites : {
         idle : {
             imageSrc: './img/Player2/idle.png',
-            framesMax: 4,
+            framesMax: 6,
         },
         run : {
             imageSrc: './img/Player2/run.png',
-            framesMax: 6,
+            framesMax: 8,
         },
         jump : {
             imageSrc: './img/Player2/jump.png',
-            framesMax: 4,
+            framesMax: 3,
         },
         fall : {
             imageSrc: './img/Player2/fall.png',
-            framesMax: 2,
+            framesMax: 3,
         },
         attack1 : {
             imageSrc: './img/Player2/attack1.png',
             framesMax: 6,
         },  
+    },
+    attackBox: {
+        offset: {
+            x: -115,
+            y: 50
+        },
+        width: 100,
+        height: 50
     } 
 })
 
