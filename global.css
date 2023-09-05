@@ -19,12 +19,14 @@ body {
 
 .gameStatus {
 	animation: 2s fadeUp forwards;
+	overflow: hidden;
+	bottom: -100px;
 }
 
 @keyframes fadeUp {
 	0% {
 		opacity: 0;
-		bottom: -300px;
+		bottom: -100px;
 		font-size: 0;
 		color: white;
 	}
