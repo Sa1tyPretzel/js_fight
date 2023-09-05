@@ -16,3 +16,22 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.gameStatus {
+	animation: 2s fadeUp forwards;
+}
+
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		bottom: -300px;
+		font-size: 0;
+		color: white;
+	}
+	100% {
+		color: limegreen;
+		opacity: 1;
+		bottom: 0;
+		font-size: 60px;
+	}
+}
