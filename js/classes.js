@@ -125,11 +125,16 @@ class Fighter extends Sprite {
     }
 
     hurt() {
-      this.switchSprite('hurt')
       this.health -= 20
+
+      if (this.health <= 0) {
+        this.switchSprite('death')
+      } else this.switchSprite('hurt')
     }
 
     switchSprite(sprite) {
+      if (this.image === this.sprites.death.image) return
+
       // override animations with attack animations
       if (
         this.image === this.sprites.attack1.image &&
@@ -186,7 +191,14 @@ class Fighter extends Sprite {
                 this.framesMax = this.sprites.hurt.framesMax
                 this.framesCurrent = 0
               }
-                break       
+                break
+            case 'death':
+              if (this.image !== this.sprites.death.image) {
+                this.image = this.sprites.death.image
+                this.framesMax = this.sprites.death.framesMax
+                this.framesCurrent = 0
+              }
+                break           
         }
     }
 }

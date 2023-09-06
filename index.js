@@ -79,7 +79,11 @@ const player = new Fighter({
         hurt : {
             imageSrc: './img/Player1/hurt.png',
             framesMax: 4,
-        },  
+        },
+        death : {
+            imageSrc : './img/Player1/death.png',
+            framesMax : 11,
+        }  
     },
     attackBox: {
         offset: {
@@ -137,6 +141,10 @@ const enemy = new Fighter({
         hurt : {
             imageSrc: './img/Player2/hurt.png',
             framesMax: 4,
+        },
+        death : {
+            imageSrc: './img/Player2/death.png',
+            framesMax: 11,
         },  
     },
     attackBox: {
@@ -313,9 +321,9 @@ window.addEventListener('keyup', (event) => {
       case "a":
           keys.a.pressed = false
           break
-      case "w":
-          keys.w.pressed = false
-          break          
+    //   case "w":
+    //       keys.w.pressed = false
+    //       break          
     }
 
     //enemy keys
