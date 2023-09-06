@@ -276,15 +276,17 @@ function animate() {
         determineWinner({player, enemy, timerId})
     }
 
-    //end game if player moves out the box
-    if (player.position.x < -200 || player.position.x > 1000) {
-        player.dead = true
+    // end game if player moves out the box
+    if (player.position.x < -200 || player.position.x > 1000 || player.position.y < -500) {
+        //player.dead = true
+        player.switchSprite('death')
         determineWinner({player, enemy, timerId})
     }
 
-    //end game if enemy moves out the box
-    if (enemy.position.x < -200 || enemy.position.x > 1000) {
-        enemy.dead = true
+    // end game if enemy moves out the box
+    if (enemy.position.x < -200 || enemy.position.x > 1000 || enemy.position.y < -500) {
+        //enemy.dead = true
+        enemy.switchSprite('death')
         determineWinner({player, enemy, timerId})
     }
 }

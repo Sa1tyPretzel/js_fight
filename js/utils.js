@@ -10,9 +10,9 @@ function rectangularCollision({rectangle1, rectangle2}) {
 function determineWinner({player, enemy, timerId}) {
     clearTimeout(timerId)
     document.querySelector('#displayText').style.display = 'flex'
-    if (player.position.x < -200 || player.position.x > 1000) {
+    if (player.position.x < -200 || player.position.x > 1000 || player.position.y < -500) {
         document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
-    }   else if (enemy.position.x < -200 || enemy.position.x > 1000) {
+    }   else if (enemy.position.x < -200 || enemy.position.x > 1000 || enemy.position.y < -500) {
         document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
     }   else if (player.health === enemy.health) {
         document.querySelector('#displayText').innerHTML = 'Tie'
