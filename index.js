@@ -275,6 +275,18 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0) {
         determineWinner({player, enemy, timerId})
     }
+
+    //end game if player moves out the box
+    if (player.position.x < -200 || player.position.x > 1000) {
+        player.dead = true
+        determineWinner({player, enemy, timerId})
+    }
+
+    //end game if enemy moves out the box
+    if (enemy.position.x < -200 || enemy.position.x > 1000) {
+        enemy.dead = true
+        determineWinner({player, enemy, timerId})
+    }
 }
 
 animate()
