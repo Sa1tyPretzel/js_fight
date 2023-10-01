@@ -20,7 +20,10 @@ function determineWinner({player, enemy, timerId}) {
         document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
     }   else if (player.health < enemy.health) {
         document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
-    }  
+    }
+    setTimeout(function reloadP(){
+        window.location.reload();
+     }, 4000);
 }
 
 let timer = 60
