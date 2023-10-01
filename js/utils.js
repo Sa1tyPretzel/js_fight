@@ -22,7 +22,7 @@ function determineWinner({player, enemy, timerId}) {
         document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
     }
     setTimeout(function reloadP(){
-        window.location.reload();
+        document.location.reload();
      }, 4000);
 }
 
