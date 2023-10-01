@@ -355,4 +355,8 @@ window.addEventListener('keyup', (event) => {
           keys.ArrowLeft.pressed = false
           break      
     }
+    //reload function
+    // setTimeout(function reloadP(){
+    //     document.location.reload();
+    //  }, 4000);
   })
